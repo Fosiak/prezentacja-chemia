@@ -10,57 +10,78 @@ html, body {
 
 .slideshow-container {
   position: relative;
-  width: 100%; /* Szerokość na 100% */
-  height: 100vh; /* Wysokość na 100% wysokości widoku */
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; /* Ukrywa niepotrzebne elementy */
+  overflow: hidden;
 }
 
 .slide img {
-  width: 100%; /* Ustawiamy szerokość na 100% */
-  height: 100%; /* Ustawiamy wysokość na 100% */
-  object-fit: cover; /* Wypełnia cały kontener, zachowując proporcje */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-button {
+/* Kontener na przyciski i licznik slajdów */
+.controls-container {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(255, 255, 255, 0.8);
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7); /* Ciemne tło */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Przycisk "Poprzedni" */
+.prev-button, .next-button {
+  background-color: transparent;
   border: none;
-  font-size: 2rem;
+  color: white;
+  font-size: 1.5rem;
   cursor: pointer;
+  margin: 0 10px;
   padding: 10px;
+  transition: background-color 0.3s ease;
 }
 
-.prev-button {
-  left: 10px; /* Przycisk do poprzedniego slajdu po lewej stronie */
+.prev-button:hover, .next-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-.next-button {
-  right: 10px; /* Przycisk do następnego slajdu po prawej stronie */
+.slide-counter {
+  font-size: 1.2rem;
+  padding: 0 15px;
 }
 
-/* Media Queries dla urządzeń mobilnych */
+/* Media Queries dla mniejszych ekranów */
 @media (max-width: 768px) {
-  button {
-    font-size: 1.5rem; /* Mniejszy rozmiar przycisków na urządzeniach mobilnych */
-    padding: 5px; /* Mniejsze przyciski */
+  .prev-button, .next-button {
+    font-size: 1.2rem;
+    padding: 8px;
   }
 
-  .slide img {
-    height: 70vh; /* Ustaw wysokość na 70% widoku na telefonach */
+  .slide-counter {
+    font-size: 1rem;
+    padding: 0 10px;
   }
 }
 
 @media (max-width: 480px) {
-  button {
-    font-size: 1.2rem; /* Jeszcze mniejszy rozmiar przycisków na małych ekranach */
+  .prev-button, .next-button {
+    font-size: 1rem;
+    padding: 6px;
   }
 
-  .slide img {
-    height: 60vh; /* Ustaw wysokość na 60% widoku na mniejszych telefonach */
+  .slide-counter {
+    font-size: 0.9rem;
+    padding: 0 8px;
   }
 }

@@ -29,12 +29,12 @@ function App() {
   // Ustawienie wysokości okna
   useEffect(() => {
     const handleResize = () => {
-      setWindowHeight(window.innerHeight); // Ustaw wysokość na aktualną wysokość okna
+      setWindowHeight(window.innerHeight); 
     };
 
-    window.addEventListener('resize', handleResize); // Dodaj nasłuchiwacz zdarzeń
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize); // Oczyść nasłuchiwacz
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -43,8 +43,15 @@ function App() {
       <div className="slide">
         <img src={images[currentSlide]} alt={`Slide ${currentSlide + 1}`} />
       </div>
-      <button onClick={handlePrevSlide} className="prev-button">❮</button>
-      <button onClick={handleNextSlide} className="next-button">❯</button>
+
+      {/* Kontener przycisków oraz licznika slajdów */}
+      <div className="controls-container">
+        <button onClick={handlePrevSlide} className="prev-button">❮</button>
+        <div className="slide-counter">
+          {currentSlide + 1}/{images.length}
+        </div>
+        <button onClick={handleNextSlide} className="next-button">❯</button>
+      </div>
     </div>
   );
 }
