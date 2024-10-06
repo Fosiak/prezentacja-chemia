@@ -39,6 +39,7 @@ html, body {
   font-size: 1.2rem;
   font-family: Arial, sans-serif;
   transition: opacity 0.5s ease;
+  opacity: 0;
 }
 
 /* Przycisk "Poprzedni" */
