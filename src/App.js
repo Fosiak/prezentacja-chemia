@@ -14,7 +14,8 @@ function App() {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight); // Użyj domyślnej wysokości okna
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [isHovered, setIsHovered] = useState(false); // Nowy stan dla śledzenia najechania myszką
 
   const handleNextSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide + 1) % images.length);
@@ -26,10 +27,9 @@ function App() {
     );
   };
 
-  // Ustawienie wysokości okna
   useEffect(() => {
     const handleResize = () => {
-      setWindowHeight(window.innerHeight); 
+      setWindowHeight(window.innerHeight);
     };
 
     window.addEventListener('resize', handleResize);
@@ -45,7 +45,12 @@ function App() {
       </div>
 
       {/* Kontener przycisków oraz licznika slajdów */}
-      <div className="controls-container">
+      <div
+        className="controls-container"
+        onMouseEnter={() => setIsHovered(true)}  // Włącz widoczność paska na najechanie
+        onMouseLeave={() => setIsHovered(false)} // Wyłącz widoczność paska po zjechaniu myszką
+        style={{ opacity: isHovered ? 1 : 0 }}  // Zmienna widoczność paska
+      >
         <button onClick={handlePrevSlide} className="prev-button">❮</button>
         <div className="slide-counter">
           {currentSlide + 1}/{images.length}
