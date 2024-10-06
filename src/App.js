@@ -6,6 +6,11 @@ function App() {
     '/images/1.jpg', // Upewnij się, że zdjęcia są w folderze public/images
     '/images/2.jpg',
     '/images/3.jpg',
+    '/images/4.jpg',
+    '/images/5.jpg',
+    '/images/6.jpg',
+    '/images/7.jpg',
+    '/images/8.jpg',
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
